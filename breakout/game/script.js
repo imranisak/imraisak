@@ -78,7 +78,7 @@ function collisionDetection() {//provjera udarca lopte u ciglu
           */ {
           dy = -dy;//ako je lopta se nasla na kordinatama jedne od cigle mjenjamo njen smjer
           b.status = 0;//brisemo ciglu
-           wall_hit.play();
+          wall_hit.play();
           score++;//povecavamo rezultat
           if(score == brickRowCount*brickColumnCount) {//kad sve cigle srusimo
             audio.pause();//kad korisnik pobjedi muzika prestaje
@@ -265,7 +265,7 @@ function draw() {//gdje se magija odvija
  //EASY
 if(document.getElementById("easy").checked)
 {   speed = document.getElementById("easy").value;
-    audio=document.getElementById("song1");
+    audio=document.getElementById("music/song1");
     color="#0095DD";
     lives=3;
     brickColumnCount=4;
@@ -278,7 +278,7 @@ if(document.getElementById("easy").checked)
   { speed = document.getElementById("medium").value;
     lives=2;
     color="#8ec66f";
-    audio=document.getElementById("song2");
+    audio=document.getElementById("music/song2");
     brickColumnCount=5;
     brickRowCount=9;
     canvas.height=700;
@@ -288,7 +288,7 @@ if(document.getElementById("easy").checked)
   else if(document.getElementById("hard").checked)
   {speed = document.getElementById("hard").value;
   lives=1; 
-  audio=document.getElementById("song3");
+  audio=document.getElementById("music/song3");
   //color='bojaP';
   brickColumnCount=6;
   brickRowCount=11;
