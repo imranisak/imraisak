@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Brekout</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	
+<audio id="song1">
+	<source src="music/song1.ogg" type="audio/ogg">
+</audio>
+
+<audio id="song2">
+	<source src="music/song2.ogg" type="audio/ogg">
+</audio>
+
+<audio id="song3">
+	<source src="music/song3.ogg" type="audio/ogg">
+</audio>
+
+<audio id="bounce">
+	<source src="soundfx/bounce.ogg" type="audio/ogg">
+</audio>
+
+<audio id="wall_hit">
+	<source src="soundfx/wall_hit.ogg" type="audio/ogg">
+</audio>
+
+<audio id="game_over">
+	<source src="soundfx/game_over.wav" type="audio/ogg">
+</audio>
+
+<div class="name" id="name"> <h1>Breakout Game</h1></div>
+
+
+<div class="choose"  id="choose">Please choose game difficulty!</div>
+
+<div class="inp"  id="inp">
+<input type="radio" name="type" value="10" id="easy" onclick="settings();"/><label for="rad1">Easy</label>
+<input type="radio" name="type" value="6" id="medium"  onclick="settings();"/><label for="rad1">Medium</label>
+<input type="radio" name="type" value="3" id="hard" onclick="settings();"/><label for="rad1">Hard</label></div><div class=" btn">
+<button id="start" onclick="start()">START!</button></div>
+
+<canvas id="myCanvas" width="400px" height="400px"  ></canvas>
+
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
