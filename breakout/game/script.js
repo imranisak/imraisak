@@ -300,7 +300,6 @@ if(document.getElementById("easy").checked)
 }
 function start()//kad se klikne start igra pocinje
 {
-wall_hit.play();
 if(speed===undefined){//ako nista nije odabrano dajemo upozorenje
   alert('Please choose difficulty of game!');}
   else{//kad je odabrana tezina

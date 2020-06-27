@@ -1,9 +1,7 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Weather forecast</title>
-
+	<title>Weather app</title>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -12,11 +10,17 @@
     $( "#tabs" ).tabs();
   } );
   </script>
-
-
 </head>
+
 <body>
- 
+<div class="col-md-12">
+	<h1 class="text-center">
+		Weather app
+	</h1>
+</div>
+<p>
+	This is a <i>very</i> simple Weather app, that uses AJAX to display weather information about a city you seatch for. <b>Does it look nice?</b> OF COURSE NOT! I can't make things look nice. But it works. I used an API from <a target="_blank" href="https://openweathermap.org/">openweathermap.org</a> to get the necesarry data. Try it out!
+</p>
 <form>
   <input type='text' id='grad_value'>
   <input type='submit' id='send'>
@@ -26,8 +30,6 @@
     <li><a href="#tabs-1">Today</a></li>
     <li><a href="#tabs-2">Tommorow</a></li>
     <li><a href="#tabs-3">In 2 days</a></li>
-    <li><a href="#tabs-4">In 3 days</a></li>
-    <li><a href="#tabs-5">In 4 days</a></li>
   </ul>
   <div id="tabs-1">
   </div>
@@ -37,9 +39,8 @@
   </div>  
   <div id="tabs-4">
   </div>  
-  <div id="tabs-5">
-  </div>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

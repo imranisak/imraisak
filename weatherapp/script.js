@@ -1,7 +1,8 @@
 $(document).ready(function() {
+  var grad;
   $('#send').click(function(e) {
     e.preventDefault();
-    var grad = $('#grad_value').val();
+    grad = $('#grad_value').val();
     if (grad !== '') {
       $.ajax({
         type: 'GET',
@@ -9,16 +10,17 @@ $(document).ready(function() {
         dataType: 'jsonp',
         success: function(response)
         {
-          main(response);
+          main(response, grad);
         }
       })
     }
+    else alert("Please input city!");
   });
 });
 
-function main(data)
+function main(data, grad)
 {
-  console.log(data);
+  //console.log(data);
   var niz=data.list,
     danas=new Date(),
     duzinaNiza=niz.length
@@ -57,16 +59,17 @@ function main(data)
     var tab="#tabs-"+brojacTaba;
     tab=$(tab),
     duzina=dan.length;
+    tab.html("");
     //////////////////////////////////////////////
     var table=$("<table class='table table-hover'></table>"),//Napravi tabelu
     //Postavlja head tabele, i appenda
         tableHead=$("<thead></thead>"),
         tableHeadRow=$("<tr></tr>"),
-        tableHeadRowSat=$("<th>Sat</th>"),
-        tableHeadRowPrognoza=$("<th>Prognoza</th>"),
-        tableHeadRowTemp=$("<th>Temperatura</th>"),
-        tableHeadRowVlaznost=$("<th>Vlaznost</th>"),
-        tableHeadRowVjetar=$("<th>Vjetar</th>");
+        tableHeadRowSat=$("<th>Time</th>"),
+        tableHeadRowPrognoza=$("<th>Forecast</th>"),
+        tableHeadRowTemp=$("<th>Temperature</th>"),
+        tableHeadRowVlaznost=$("<th>Humidity</th>"),
+        tableHeadRowVjetar=$("<th>Wind</th>");
 
     $(tableHeadRow).append(tableHeadRowSat);
     $(tableHeadRow).append(tableHeadRowPrognoza);
@@ -85,10 +88,9 @@ function main(data)
           tempSadrzaj=$("<td></td>"),
           vlaznostSadrzaj=$("<td></td>"),
           vjetarSadrzaj=$("<td></td>");
-
       var sat, prognoza, temp, vlaznost, vjetar;
       //Postavlja sate
-      sat="<p>"+vratiSate(dan[i].dt_txt)+"</p>";
+      sat="<p>"+vratiSate(dan[i].dt_txt)+"h</p>";
       satSadrzaj.append(sat);
       $(redPodataka).append(satSadrzaj);
       ////////////////
@@ -127,12 +129,14 @@ function main(data)
     }
 
     $(table).append(tableBody);
+    $(tab).append("<h3>Showing weather for<b> "+grad.toUpperCase()+"</b></h3>");
     $(tab).append(table);//Doda tabelu u tab
     brojacTaba++;//Na kraju funkcije poveca brojac tabova, tako da moze pozvati iduci
   }
   tabele(sutraVrijeme);
   tabele(prekosutraVrijeme);
   tabele(zakosutraVrijeme);
-  tabele(cetvrtiDanVrijeme);
-  tabele(petiDanVrijeme);
+  $("#weatherIframe").css("height","100%");
+  $("#weatherDiv").css("height","100%");
+  //tabele(petiDanVrijeme); Nema petog dana, zasto samo ovo prije stavio ovdje? o.O
 }
