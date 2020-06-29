@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 function main(data, grad)
 {
-  //console.log(data);
+  console.log(data);
   var niz=data.list,
     danas=new Date(),
     duzinaNiza=niz.length
