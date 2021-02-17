@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 function main(data, grad)
 {
-  console.log(data);
+  //console.log(data);
   var niz=data.list,
     danas=new Date(),
     duzinaNiza=niz.length
@@ -29,7 +29,7 @@ function main(data, grad)
     zakosutraVrijeme=[],
     cetvrtiDanVrijeme=[],
     petiDanVrijeme=[],
-    brojacTaba=1,
+    brojacTaba=0,
     tabs=$("#tabs");//Izabere sve tabove i HTMLa(svaki TAB je DIV)
   danas=danas.getDate();//Postavlja danasni dan, koji ce se kasnije sluziti za poredenje
   for (var i=0; i<duzinaNiza;i++) 
@@ -82,6 +82,7 @@ function main(data, grad)
     var tableBody=$("<tbody></tbody>");
     for (var i=0;i<duzina;i++)
     {
+      console.log("test");
       var redPodataka=$("<tr></tr>"),
           satSadrzaj=$("<td></td>"),
           prognozaSadrzaj=$("<td></td>"),
@@ -107,6 +108,7 @@ function main(data, grad)
       /////////////////////////////
       //Postavlja temperaturu
       temp="<p>"+Math.round(dan[i].main.temp)+"</p>";
+      console.log(temp);
       $(tempSadrzaj).append(temp);
       $(redPodataka).append(tempSadrzaj);
       /////////////////////////
@@ -132,11 +134,10 @@ function main(data, grad)
     $(tab).append("<h3>Showing weather for<b> "+grad.toUpperCase()+"</b></h3>");
     $(tab).append(table);//Doda tabelu u tab
     brojacTaba++;//Na kraju funkcije poveca brojac tabova, tako da moze pozvati iduci
+    console.log(brojacTaba);
   }
   tabele(sutraVrijeme);
   tabele(prekosutraVrijeme);
   tabele(zakosutraVrijeme);
-  $("#weatherIframe").css("height","100%");
-  $("#weatherDiv").css("height","100%");
   //tabele(petiDanVrijeme); Nema petog dana, zasto samo ovo prije stavio ovdje? o.O
 }
