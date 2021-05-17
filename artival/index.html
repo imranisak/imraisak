@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="description" content="Artival data filter">
+    <meta name="keywords" content="php, html, css, js, Artival, Imran Isak">
+    <meta name="author" content="Imran Isak">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Artival</title>
+</head>
+<body>
+    <h1 style="text-align: center">Artival data filter</h1>
+    <p>
+        Artival reached out to me, and they had a very specific issue. They have a database of more than 500 consultants (at the time of writing this).<br>
+        Each of those those consultants has a lot of attributes which need to be filtered by (in which area each consultant has experience, how much experience etc..)
+        Consultants have to fill out a form, made in RSForms Pro, in Joomla. The Artival team would then - individually - export all of the submissions in Excel, and then using<br>
+        some filters they made themselves sort through the data. I was tasked to make this online. <br>
+        I used <a href="https://datatables.net/" target="_blank">Datatables</a>  to do the actual filtering, however, that was not the issue.
+        RSForms saves in an interesting way. Every submission is stored in two tables. Table one has some basic data - WHEN it was sent, the form ID, IP address and such. NO actual data is stored here.<br>
+        The actual data is stored in a separate table. Each field in the form is saved in one row in the table. For example - name. It is stored in, for example, row 54. Field value, field name, form ID.<br>
+        All of this data has to be moved to one uniform table, which can then be loaded to the Datatable on the frontend. It also has to account for fields in the form which can be added later on<br>
+        and also can be edited, and deleted.
+    </p>
+    <br>
+    <p>
+        All of this works! But there was more! More tables were also needed, and they all had to be linked together.<br>
+        Table organizations is linked to projects (one organisation can have multiple projects)<br>
+        Then, selected consultants - multiple consultants can work on multiple projects.<br>
+        Everything is linked in PHP, using IDs of the selected consultants and projects.
+    </p>
+</body>
+</html>
